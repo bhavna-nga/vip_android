@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/xx"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/black">
+
+    <ImageView
+        android:id="@+id/upper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/image1" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+    <RelativeLayout
+        android:id="@+id/cstmRel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upper"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/client_brandingcopy">
+
+        <TextView
+            android:id="@+id/main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ques"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/img_msgg"
+            android:src="@drawable/questionfoccussedcopy" />
+
+        <ImageView
+            android:id="@+id/img_msgg"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/img_call"
+            android:src="@drawable/messagefocuscopy" />
+
+        <ImageView
+            android:id="@+id/img_call"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/img_chat"
+            android:src="@drawable/phonefoccussedcopy" />
+
+        <ImageView
+            android:id="@+id/img_chat"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/chat_icon" />
+
+        <TextView
+            android:id="@+id/sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main"
+            android:layout_marginLeft="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/web"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/sub"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:text="(Web)"-->
+            <!--android:textColor="#FFFFFF" />-->
+
+        <TextView
+            android:id="@+id/txt_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/sub"
+            android:layout_marginRight="15dp"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/middel_belo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cstmRel"
+        android:scaleType="fitXY"
+        android:src="@drawable/img3" />
+
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/middel_belo"
+
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/cstmRelBtm"
+                android:layout_above="@+id/forbuttons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/center">
+
+                <ScrollView
+                    android:id="@+id/sc1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="invisible">
+
+                        <EditText
+                            android:id="@+id/q_edit_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:hint="Name"
+                            android:imeOptions="actionNext"
+                            android:singleLine="true"
+                            android:textSize="15sp"></EditText>
+
+                        <EditText
+                            android:id="@+id/q_edit_phone"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/q_edit_name"
+                            android:hint="Phone"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/q_edit_email"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/q_edit_phone"
+                            android:hint="Email"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/q_edit_ques"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/q_edit_email"
+                            android:hint="Add Your Question for our Support Team"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:lines="4"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/cancel_ques"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/q_edit_ques"
+                            android:layout_marginTop="6dp"
+                            android:text="Cancel" />
+
+                        <Button
+                            android:id="@+id/send_ques"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/q_edit_ques"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="6dp"
+                            android:text="Send" />
+                    </RelativeLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/sc2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="invisible">
+
+                        <EditText
+                            android:id="@+id/edit_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:hint="Name"
+                            android:imeOptions="actionNext"
+                            android:singleLine="true"
+                            android:textSize="15sp"></EditText>
+
+                        <EditText
+                            android:id="@+id/edit_phone"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_name"
+                            android:hint="Phone"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/edit_email"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_phone"
+                            android:hint="Email"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/edit_msg"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_email"
+                            android:hint="Message"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:lines="4"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/cancel_message"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/edit_msg"
+                            android:layout_marginTop="6dp"
+                            android:text="Cancel" />
+
+                        <Button
+                            android:id="@+id/send_message"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/edit_msg"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="6dp"
+                            android:text="Send" />
+                    </RelativeLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/sc3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/registration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Registration"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/edit_firstname"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/textview"
+                            android:layout_marginTop="15dp"
+                            android:hint="First Name"
+                            android:imeOptions="actionNext"
+                            android:singleLine="true"
+                            android:textSize="15sp"></EditText>
+
+                        <EditText
+                            android:id="@+id/edit_lastname"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_firstname"
+                            android:hint="Last Name"
+                            android:imeOptions="actionNext"
+                            android:singleLine="true"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/edit_regemail"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_lastname"
+                            android:hint="Email"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/edit_password"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_regemail"
+                            android:hint="Password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/btn_regsignin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/edit_password"
+                            android:layout_marginTop="7dp"
+                            android:text="Sign in" />
+
+                        <Button
+                            android:id="@+id/register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/edit_password"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="7dp"
+                            android:text="Register" />
+                    </RelativeLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/sc4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/signin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/textviewsignin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Sign in"
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/edit_email_signin"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/textviewsignin"
+                            android:layout_marginTop="15dp"
+                            android:hint="E-mail"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:singleLine="true"
+                            android:textSize="15sp"></EditText>
+
+                        <EditText
+                            android:id="@+id/edit_password_signin"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/edit_email_signin"
+                            android:hint="Password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/btn_signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/edit_password_signin"
+                            android:layout_marginTop="7dp"
+                            android:text="Sign up" />
+
+                        <Button
+                            android:id="@+id/btn_signin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/edit_password_signin"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="7dp"
+                            android:text="Sign in" />
+
+                        <Button
+                            android:id="@+id/cancellinggg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/btn_signin"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="6dp"
+                            android:text="Cancel" />
+                    </RelativeLayout>
+                </ScrollView>
+
+                <RelativeLayout
+                    android:id="@+id/youtube"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="17dp"
+                    android:visibility="gone">
+
+                    <com.google.android.youtube.player.YouTubePlayerView
+                        android:id="@+id/youtube_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/mediaPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/EditTextSongURL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:height="100dp"
+                        android:ems="10"
+                        android:lines="3"
+                        android:maxLines="3"
+                        android:minLines="1"
+                        android:visibility="gone">
+
+                    </TextView>
+
+                    <ImageButton
+                        android:id="@+id/ButtonTestPlayPause"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/EditTextSongURL"
+                        android:onClick="onClick"
+                        android:src="@android:drawable/ic_media_play" />
+
+                    <SeekBar
+                        android:id="@+id/SeekBarTestPlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/ButtonTestPlayPause"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/dur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/SeekBarTestPlay" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/forweb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mediaPlayer"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="17dp"
+                    android:visibility="visible">
+
+
+                    <com.vip.vipapp.TouchyWebView
+                        android:id="@+id/web_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/forspcl_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="17dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                   android:layout_centerInParent="true"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/t1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You have a special Message from" />
+
+                    <TextView
+
+                        android:id="@+id/shortname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       />
+
+                    <ImageButton
+                        android:id="@+id/special_message"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+
+                        android:src="@drawable/special_message" />
+
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="#808080"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/forbuttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/forsearch"
+                android:background="@drawable/lowrr">
+
+                <TextView
+                    android:id="@+id/previous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="Previous"
+                    android:textColor="@color/branding_blue"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Share"
+                    android:textColor="@color/branding_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="25dp"
+                    android:text="Next"
+                    android:textColor="@color/branding_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/forsearch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/forcobrand"
+                android:background="@drawable/lowr1"
+                android:paddingBottom="5dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/srch_button_single" />
+
+                    <EditText
+                        android:id="@+id/srchh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/imageView4"
+                        android:background="@drawable/r2"
+                        android:focusableInTouchMode="true"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textSize="16sp"></EditText>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/forcobrand"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/lowr2">
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="18dp">
+
+                    <ImageView
+                        android:id="@+id/cobrand"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:scaleType="fitXY" />
+                </FrameLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relChatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/middel_belo"
+        android:background="@drawable/center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="invisible">
+
+        <ListView
+            android:id="@+id/lst_chat"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/rel_bottom"
+            android:background="#D6D6D6"
+            android:divider="@null"
+            android:paddingBottom="5dp"
+            android:transcriptMode="alwaysScroll"></ListView>
+
+        <RelativeLayout
+            android:id="@+id/rel_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/darker_gray">
+
+            <EditText
+                android:id="@+id/edt_message"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/btn_send_message"
+                android:background="#ffffff"
+                android:hint="Start typing..."
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:maxLines="10"
+                android:minLines="2"
+                android:scrollbars="none|vertical"
+                android:singleLine="false"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_send_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Send" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
