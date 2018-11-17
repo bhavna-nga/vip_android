@@ -34,9 +34,9 @@ public class ParseClientDetails extends AsyncTask<Void, Void, Void> {
 		s[1] = subtxt;
 		s[2] = uri;
 		s[3] = phone;
-		if(search.contains("\r\n"))
+		if(search != null && search.contains("\r\n"))
 		search=search.replaceAll("\r\n", "#");
-		s[4]=  search;
+		s[4]= search;
         s[5]=email;
         s[6]=shrt_name;
 		return s;
@@ -63,7 +63,7 @@ public class ParseClientDetails extends AsyncTask<Void, Void, Void> {
 			publishProgress();
 			// onProgressUpdate();
 			Log.d("YE h", "yo " + c);
-		} catch (JSONException e1) {
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}

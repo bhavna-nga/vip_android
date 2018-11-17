@@ -31,11 +31,7 @@ public class Parser {
                         HttpResponse response = client.execute(post);
                         HttpEntity entity = response.getEntity();
                         is = entity.getContent();
-            }catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+            }catch (Exception e) {
             e.printStackTrace();
         }
             try {
@@ -65,11 +61,7 @@ public class Parser {
                     HttpResponse response = client.execute(post);
                     HttpEntity entity = response.getEntity();
                     is = entity.getContent();
-        }catch (UnsupportedEncodingException e) {
-        e.printStackTrace();
-    } catch (ClientProtocolException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
+        }catch (Exception e) {
         e.printStackTrace();
     }
         try {
@@ -89,7 +81,7 @@ public class Parser {
     }
         try {
         jOb = new JSONObject(json);
-    } catch (JSONException e) {
+    } catch (Exception e) {
         Log.e("JSON Parser", "Error parsing data " + e.toString());
     }
     return jOb;

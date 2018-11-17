@@ -1228,7 +1228,7 @@ public class MainActivity extends YouTubeBaseActivity implements
                     msg = "Device registered, registration ID=" + regid;
                     Log.i("GCM", msg);
 
-                } catch (IOException ex) {
+                } catch (Exception ex) {
                     msg = "Error :" + ex.getMessage();
 
                 }
@@ -1385,6 +1385,7 @@ public class MainActivity extends YouTubeBaseActivity implements
     // display client's data on UI
     public void showDetails() {
 
+        try{
         g = p1.getDetails();
         main.setText(g[0]);
         sub.setText(g[1]);
@@ -1396,8 +1397,10 @@ public class MainActivity extends YouTubeBaseActivity implements
 
         tag = srch;
         Log.d("", "lop" + srch);
-        temp = srch.split("\\x7C");
-        srch_curl = srch.split("#");
+        if(srch != null) {
+            temp = srch.split("\\x7C");
+            srch_curl = srch.split("#");
+        }
         Log.d("", "qwerty" + srch_curl.length);
         for (int j = 0; j < srch_curl.length; j++)
             Log.d("", "tem22p" + srch_curl[j]);
@@ -1471,13 +1474,14 @@ public class MainActivity extends YouTubeBaseActivity implements
             }
 
         });
-
+}
+        catch (Exception e)
+        {e.printStackTrace();}
     }
 
     // retrieve all the message of clients
 
     public void getList()
-
     {
 
         for (int i = 0; i < p2.getTextDetails().size(); i++) {
