@@ -14,12 +14,14 @@ public class GlobalArrayList {
 	static int userId = 0;
 //	static int clientId1 = 479; // Change From ExcelSheet
 	static String auth_token = "";
-	static String regId = "";
+	public static String regId = "";
 	static Handler mHandler;
 	static boolean isShowChat = false;
 	static boolean isNotificationMessage = false;
 	static ArrayList<EachMessage> message,message2;
-	static String BASE_URL = "http://2ndcousinmedia.com/"; //"http://10.0.0.10:8000/";
+//	static String BASE_URL = "http://2ndcousinmedia.com/";
+	static String BASE_URL = "http://192.168.1.13:8000/"; //http://planning.2ndcousinmedia.com:8000
+	public static String CLIENT_ID ;
 
 	static String MSG_TYPE_BLOG = "3",
 			MSG_TYPE_VIDEO = "4",
@@ -30,7 +32,11 @@ public class GlobalArrayList {
 			VIDEO_TYPE_VIMEO = "2",
 			VIDEO_TYPE_YOUTUBE = "3",
 			VIDEO_TYPE_IFRAME = "4";
-	
+
+	public static void setClientID(String clientId)
+	{
+		CLIENT_ID = clientId;
+	}
 	/**
 	   * Checks if the application is being sent in the background (i.e behind
 	   * another application's Activity).

@@ -15,11 +15,12 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <permission
-        android:name="com.vip.vipapp.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
+    <!-- Removed as specified for GCM to FCM migration-->
+    <!--<permission-->
+        <!--android:name="com.vip.vipapp.permission.C2D_MESSAGE"-->
+        <!--android:protectionLevel="signature" />-->
 
-    <uses-permission android:name="com.vip.vipapp.permission.C2D_MESSAGE" />
+    <!--<uses-permission android:name="com.vip.vipapp.permission.C2D_MESSAGE" />-->
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -68,22 +69,47 @@
             android:label="@string/app_label"
             android:launchMode="singleTop"
             android:screenOrientation="sensor"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-        <receiver
-            android:name=".GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+        <!--FCM-->
+        <service android:name=".fcm.PushNotificationService">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="com.vip.vipapp" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </receiver>
+        </service>
 
-        <service android:name=".GcmMessageHandler" />
+        <service android:name=".fcm.PushNotificationRegistrationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+            See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/vip_push" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/branding_blue" />
+
+        <!-- Removed as specified for GCM to FCM migration-->
+        <!--<receiver-->
+            <!--android:name=".GcmBroadcastReceiver"-->
+            <!--android:permission="com.google.android.c2dm.permission.SEND">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.android.c2dm.intent.RECEIVE" />-->
+
+                <!--<category android:name="com.vip.vipapp" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <!--<service android:name=".GcmMessageHandler" />-->
 
         <activity android:name=".VideoPlayActivity">
             <!--<intent-filter>-->

@@ -60,7 +60,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -201,7 +200,7 @@ public class MainActivity extends YouTubeBaseActivity implements
     List<String> full_list, msg_id;
     List<String> vid_list, text_list, video_type;
 
-    GoogleCloudMessaging gcm;
+//    GoogleCloudMessaging gcm;
     ConnectionDetector cd;
     Boolean isInternetPresent = false;
     DisplayMetrics displayMetrics;
@@ -223,6 +222,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 
         //setting the dynamic URLs
 
+        GlobalArrayList.setClientID(getString(R.string.client_id));
         PROJECT_NUMBER = getString(R.string.project_number);
 
         url = GlobalArrayList.BASE_URL + "desktop_widgets/client_detail_iphone.json?client_id="
@@ -232,7 +232,6 @@ public class MainActivity extends YouTubeBaseActivity implements
 
         url2 = GlobalArrayList.BASE_URL + "desktop_widgets/cobranding_details.json?client_id="
                 + getString(R.string.client_id) + "";
-
 //
 //        url = "http://d9081a55.ngrok.io/desktop_widgets/client_detail_iphone.json?client_id="
 //                + getString(R.string.client_id) + "";
@@ -289,7 +288,7 @@ public class MainActivity extends YouTubeBaseActivity implements
         cstm = (RelativeLayout) findViewById(R.id.cstmRel);
         shortName = (TextView) findViewById(R.id.shortname);
         if (isInternetPresent) {
-            getRegId();
+//            getRegId();
             brandingDetails.execute();
             p1.execute();
             p2.execute();
@@ -1213,7 +1212,8 @@ public class MainActivity extends YouTubeBaseActivity implements
         popup.show();// showing popup menu
     }
 
-    public void getRegId() {
+    // Updated for GCM - FCM
+   /* public void getRegId() {
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
@@ -1242,7 +1242,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 
             }
         }.execute(null, null, null);
-    }
+    }*/
 
     // Check screen orientation or screen rotate event here
     @Override
