@@ -65,6 +65,8 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -219,11 +221,14 @@ public class MainActivity extends YouTubeBaseActivity implements
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
-
+        FirebaseApp.initializeApp(MainActivity.this);
         //setting the dynamic URLs
 
         GlobalArrayList.setClientID(getString(R.string.client_id));
         PROJECT_NUMBER = getString(R.string.project_number);
+
+        GlobalArrayList.regId = FirebaseInstanceId.getInstance().getToken();
+        new SendIntialInfo(GlobalArrayList.regId, GlobalArrayList.CLIENT_ID);
 
         url = GlobalArrayList.BASE_URL + "desktop_widgets/client_detail_iphone.json?client_id="
                 + getString(R.string.client_id) + "";
@@ -594,30 +599,31 @@ public class MainActivity extends YouTubeBaseActivity implements
                 new FetchData().execute();
                 if ((relChatLayout.getVisibility() == View.INVISIBLE || relChatLayout
                         .getVisibility() == View.GONE) && pushMessage == 1) {
+                    Log.v("INSIDE ", "**************** ");
                     imgChat.setImageResource(R.drawable.chat_new_message);
                     getNewMessage = 1;
-                    NotificationManager mNotificationManager = (NotificationManager) getApplicationContext()
-                            .getSystemService(Context.NOTIFICATION_SERVICE);
-
-                    Intent intentExtra = new Intent(MainActivity.this,
-                            MainActivity.class);
-                    intentExtra.putExtra("message", 1);
-
-                    PendingIntent contentIntent = PendingIntent.getActivity(
-                            MainActivity.this, 0, intentExtra, 0);
-
-                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-                            getApplicationContext())
-                            .setSmallIcon(R.drawable.vip_push)
-                            .setContentTitle(getString(R.string.app_name))
-                            .setStyle(
-                                    new NotificationCompat.BigTextStyle()
-                                            .bigText(newMessage))
-                            .setContentText(newMessage).setAutoCancel(true)
-                            .setDefaults(Notification.DEFAULT_SOUND);
-
-                    mBuilder.setContentIntent(contentIntent);
-                    mNotificationManager.notify(1, mBuilder.build());
+//                    NotificationManager mNotificationManager = (NotificationManager) getApplicationContext()
+//                            .getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//                    Intent intentExtra = new Intent(MainActivity.this,
+//                            MainActivity.class);
+//                    intentExtra.putExtra("message", 1);
+//
+//                    PendingIntent contentIntent = PendingIntent.getActivity(
+//                            MainActivity.this, 0, intentExtra, 0);
+//
+//                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+//                            getApplicationContext())
+//                            .setSmallIcon(R.drawable.vip_push)
+//                            .setContentTitle(getString(R.string.app_name))
+//                            .setStyle(
+//                                    new NotificationCompat.BigTextStyle()
+//                                            .bigText(newMessage))
+//                            .setContentText(newMessage).setAutoCancel(true)
+//                            .setDefaults(Notification.DEFAULT_SOUND);
+//
+//                    mBuilder.setContentIntent(contentIntent);
+//                    mNotificationManager.notify(1, mBuilder.build());
                     // change image on chat icon
                 }
             }
@@ -1101,7 +1107,7 @@ public class MainActivity extends YouTubeBaseActivity implements
             showNewMessageDialog();
 
         if (getNewMessage == 1) {
-            imgChat.setImageResource(R.drawable.chat_icon);
+            imgChat.setImageResource(R.drawable.chat_new_message);
 
         } else
             imgChat.setImageResource(R.drawable.chat_icon);

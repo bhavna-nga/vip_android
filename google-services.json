@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "810527830065",
+    "firebase_url": "https://chiro-b6416.firebaseio.com",
+    "project_id": "chiro-b6416",
+    "storage_bucket": "chiro-b6416.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810527830065:android:7bebf8774e470a99",
+        "android_client_info": {
+          "package_name": "com.vip.vipapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810527830065-5m7igd46llear6ecvreg8l4ukj96nmgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Ji158EGR5rCEFgc2hL15kTLcKoJ6cBU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
