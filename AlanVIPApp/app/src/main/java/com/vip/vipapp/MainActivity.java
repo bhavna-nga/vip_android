@@ -1984,13 +1984,13 @@ public class MainActivity extends YouTubeBaseActivity implements
                     } catch (Exception e) {
                         Log.d("", "" + e);
                     }
-
                 }
             });
 
         }
-        // if (timerUpdate == null)
-        // chatUpdate();
+//         if (timerUpdate == null)
+//             updatePage_count();
+//         chatUpdate();
 		/*
 		 * } else { MainActivity.this.runOnUiThread(new Runnable() {
 		 *
