@@ -208,7 +208,11 @@ public class MainActivity extends YouTubeBaseActivity implements
     DisplayMetrics displayMetrics;
     ProgressDialog progressDialog;
 
-	/*
+    Runnable reloadMsgsRunnable;
+    Handler reloadMsgsHandler;
+    private boolean reloadChatMessages = false;
+
+    /*
      * static AdView adView; private static final String AD_UNIT_ID =
 	 * "ca-app-pub-7094721625794575/9921094240"; RelativeLayout adLayout;
 	 */
@@ -691,6 +695,7 @@ public class MainActivity extends YouTubeBaseActivity implements
                     getNewMessage = 0;
                     imgChat.setImageResource(R.drawable.chat_icon_selected);
                     // ACTION = "chat";
+                    Log.v("GlobalArrayList.userId", "****************** "+GlobalArrayList.userId);
                     if (GlobalArrayList.userId == 0) {
                         signin.setVisibility(View.VISIBLE);
                         sc4.setVisibility(View.VISIBLE);
@@ -698,11 +703,18 @@ public class MainActivity extends YouTubeBaseActivity implements
                         // Toast.makeText(getApplicationContext(),
                         // "user_id:" + GlobalArrayList.userId, Toast.LENGTH_LONG)
                         // .show();
-
+                        signin.setVisibility(View.GONE);
                         relChatLayout.setVisibility(View.VISIBLE);
                         showChatMessages();
+
+                        // set timer for reloading chat messages after every 1 minute
+                        scheduleReloadChatMsgs();
                     }
                 } else {
+                    // remove callback
+                    if(reloadMsgsHandler != null && reloadMsgsRunnable != null)
+                        reloadMsgsHandler.removeCallbacks(reloadMsgsRunnable);
+
                     if (ACTION.equalsIgnoreCase("question")) {
                         ques.setImageResource(R.drawable.questionfoccussedcopy_selected);
                         ACTION = "question";
@@ -1026,6 +1038,20 @@ public class MainActivity extends YouTubeBaseActivity implements
             primarySeekBarProgressUpdater();
         }
     }
+
+    private void scheduleReloadChatMsgs(){
+        reloadMsgsHandler = new Handler();
+        reloadMsgsRunnable = new Runnable() {
+            @Override
+            public void run() {
+                reloadChatMessages();
+                reloadMsgsHandler.postDelayed(reloadMsgsRunnable, 15000);
+            }
+        };
+//        reloadMsgsHandler.postDelayed(reloadMsgsRunnable, 15000);
+        reloadMsgsRunnable.run();
+    }
+
 
     private void callProcedure() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -2248,11 +2274,14 @@ public class MainActivity extends YouTubeBaseActivity implements
                     AlertDialog.THEME_DEVICE_DEFAULT_DARK);
             fetchMessageDialog.setMessage("Loading...");
             fetchMessageDialog.setCancelable(false);
-            if (!GlobalArrayList.isNotificationMessage) {
-                fetchMessageDialog.show();
-            } else {
-                GlobalArrayList.isNotificationMessage = !GlobalArrayList.isNotificationMessage;
+            if(!reloadChatMessages) {
+                if (!GlobalArrayList.isNotificationMessage) {
+                    fetchMessageDialog.show();
+                } else {
+                    GlobalArrayList.isNotificationMessage = !GlobalArrayList.isNotificationMessage;
+                }
             }
+            reloadChatMessages = false;
             super.onPreExecute();
         }
 
@@ -2361,7 +2390,7 @@ public class MainActivity extends YouTubeBaseActivity implements
                                 adapter.notifyDataSetChanged();
                                 // chatListView.smoothScrollToPosition(adapter.getCount()
                                 // - 1);
-                                chatListView.setSelection(adapter.getCount() - 1);
+//                                chatListView.setSelection(adapter.getCount() - 1);
                                 Log.d("listupdate",
                                         "first time call listview update :"
                                                 + (adapter.getCount() - 1));
@@ -2768,6 +2797,9 @@ public class MainActivity extends YouTubeBaseActivity implements
                         .getSentenceStringPref(MainActivity.this, "password");
                 GlobalArrayList.userId = CommanStoredPreferences
                         .getSentenceIntPref(getApplicationContext(), "userid");
+
+
+                Log.v("NEW INTENT ","****************** executeSignIn "+ GlobalArrayList.userId);
                 if (eMail != null) {
                     GlobalArrayList.isShowChat = false;
                     String[] signinData = new String[2];
@@ -2795,6 +2827,13 @@ public class MainActivity extends YouTubeBaseActivity implements
     protected void onNewIntent(Intent intent) {
         showNewMessageDialog();
         super.onNewIntent(intent);
+    }
+
+    public void reloadChatMessages()
+    {
+        Log.v("NEW INTENT ","****************** FetchData ");
+        reloadChatMessages = true;
+        new FetchData().execute();
     }
 
     private void showNewMessageDialog() {
@@ -2838,6 +2877,10 @@ public class MainActivity extends YouTubeBaseActivity implements
             }
 
         }
+
+        // remove callback
+        if(reloadMsgsHandler != null && reloadMsgsRunnable != null)
+            reloadMsgsHandler.removeCallbacks(reloadMsgsRunnable);
     }
 
     @Override
@@ -2857,6 +2900,15 @@ public class MainActivity extends YouTubeBaseActivity implements
         // // Start loading the ad in the background.
         // adView.loadAd(adRequest);
         super.onResume();
+
+
+        Log.v("NEW INTENT ","****************** resume isChat "+ isChat +" userId "+ GlobalArrayList.userId +" SP "+CommanStoredPreferences
+                .getSentenceIntPref(getApplicationContext(), "userid"));
+        if (isChat) {
+            if (GlobalArrayList.userId != 0) {
+                scheduleReloadChatMsgs();
+            }
+        }
     }
 
     @Override
@@ -2874,7 +2926,6 @@ public class MainActivity extends YouTubeBaseActivity implements
     private void initView() {
 
         buttonPlayPause.setOnClickListener(this);
-
 
         seekBarProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

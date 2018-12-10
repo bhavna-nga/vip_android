@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.vip.vipapp.MainActivity;
 
 /**
  * This class/service is used to handle the coming notification when app in foreground.
@@ -25,7 +26,12 @@ public class PushNotificationService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        Log.v("MSG", "REC ********************** "+ remoteMessage);
+        Log.v("MSG", "REC ********************** "+ remoteMessage.getData().get("type"));
+
+//        if(remoteMessage.getData().get("type").equalsIgnoreCase("chat")) {
+//            MainActivity mainActivity = new MainActivity();
+//            mainActivity.reloadChatMessages();
+//        }
     }
 
     /* ==================================== OnClick Methods ===================================== */
