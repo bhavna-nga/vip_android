@@ -20,7 +20,7 @@ public class GlobalArrayList {
 	static boolean isNotificationMessage = false;
 	static ArrayList<EachMessage> message,message2;
 //	static String BASE_URL = "http://2ndcousinmedia.com/";
-	static String BASE_URL = "http://192.168.1.15:80/";//"http://192.168.1.18:80/"; //http://planning.2ndcousinmedia.com:8000
+	static String BASE_URL = "http://10.0.0.156:80/";//"http://192.168.1.18:80/"; //http://planning.2ndcousinmedia.com:8000
 	public static String CLIENT_ID;
 
 	static String MSG_TYPE_BLOG = "3",

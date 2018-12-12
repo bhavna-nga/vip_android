@@ -1,5 +1,6 @@
 package com.vip.vipapp;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Notification;
@@ -20,11 +21,15 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.provider.Settings.Secure;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -211,6 +216,7 @@ public class MainActivity extends YouTubeBaseActivity implements
     Runnable reloadMsgsRunnable;
     Handler reloadMsgsHandler;
     private boolean reloadChatMessages = false;
+    private static int CALL_REQUEST = 10001;
 
     /*
      * static AdView adView; private static final String AD_UNIT_ID =
@@ -695,7 +701,8 @@ public class MainActivity extends YouTubeBaseActivity implements
                     getNewMessage = 0;
                     imgChat.setImageResource(R.drawable.chat_icon_selected);
                     // ACTION = "chat";
-                    Log.v("GlobalArrayList.userId", "****************** "+GlobalArrayList.userId);
+                    Log.v("GlobalArrayList.userId", "****************** "+GlobalArrayList.userId + "SP "+CommanStoredPreferences
+                            .getSentenceIntPref(getApplicationContext(), "userid"));
                     if (GlobalArrayList.userId == 0) {
                         signin.setVisibility(View.VISIBLE);
                         sc4.setVisibility(View.VISIBLE);
@@ -704,11 +711,12 @@ public class MainActivity extends YouTubeBaseActivity implements
                         // "user_id:" + GlobalArrayList.userId, Toast.LENGTH_LONG)
                         // .show();
                         signin.setVisibility(View.GONE);
+                        sc4.setVisibility(View.GONE);
                         relChatLayout.setVisibility(View.VISIBLE);
                         showChatMessages();
 
-                        // set timer for reloading chat messages after every 1 minute
-                        scheduleReloadChatMsgs();
+//                        // set timer for reloading chat messages after every 1 minute
+//                        scheduleReloadChatMsgs();
                     }
                 } else {
                     // remove callback
@@ -767,6 +775,7 @@ public class MainActivity extends YouTubeBaseActivity implements
                 msg.setVisibility(View.INVISIBLE);
                 registration.setVisibility(View.INVISIBLE);
                 signin.setVisibility(View.INVISIBLE);
+                sc4.setVisibility(View.INVISIBLE);
                 relChatLayout.setVisibility(View.INVISIBLE);
 
                 ques_email.setText("");
@@ -1081,17 +1090,27 @@ public class MainActivity extends YouTubeBaseActivity implements
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Intent phoneIntent = new Intent(Intent.ACTION_CALL);
-                        phoneIntent.setData(Uri.parse("tel:" + phone));
-
-                        try {
-                            startActivity(phoneIntent);
-                            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-                            finish();
-
-                        } catch (android.content.ActivityNotFoundException ex) {
-
+                        // check for runtime call permission if Android version is >= Marshmallow
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_DENIED)
+                                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_REQUEST);
+                            else
+                                callNow();
                         }
+                        else
+                            callNow();
+
+//                        Intent phoneIntent = new Intent(Intent.ACTION_CALL);
+//                        phoneIntent.setData(Uri.parse("tel:" + phone));
+//
+//                        try {
+//                            startActivity(phoneIntent);
+//                            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+//                            finish();
+//
+//                        } catch (android.content.ActivityNotFoundException ex) {
+//
+//                        }
                     }
                 });
 
@@ -1109,6 +1128,35 @@ public class MainActivity extends YouTubeBaseActivity implements
 
         // Showing Alert Message
         alertDialog.show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == CALL_REQUEST){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callNow();
+            }
+            else {
+                Toast.makeText(MainActivity.this, "Call permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private void callNow()
+    {
+        Intent phoneIntent = new Intent(Intent.ACTION_CALL);
+        phoneIntent.setData(Uri.parse("tel:" + phone));
+
+        try {
+            startActivity(phoneIntent);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+            finish();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     private void setInvisibleView() {
@@ -1159,6 +1207,11 @@ public class MainActivity extends YouTubeBaseActivity implements
             hourlyTaskUpdate.cancel();
             Log.d("", "timer stoped");
         }
+
+
+        // remove callback
+        if(reloadMsgsHandler != null && reloadMsgsRunnable != null)
+            reloadMsgsHandler.removeCallbacks(reloadMsgsRunnable);
     }
 
     public void shareSocial() {
@@ -2014,6 +2067,10 @@ public class MainActivity extends YouTubeBaseActivity implements
             });
 
         }
+
+
+        // set timer for reloading chat messages after every 1 minute
+        scheduleReloadChatMsgs();
 //         if (timerUpdate == null)
 //             updatePage_count();
 //         chatUpdate();
@@ -2819,7 +2876,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 
     @Override
     protected void onStart() {
-        executeSignIn();
+//        executeSignIn();
         super.onStart();
     }
 
