@@ -14,6 +14,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
@@ -23,7 +24,7 @@ public class VideoPlayActivity extends Activity {
     private WebView myWebView;
     private int position = 0;
     private MediaController mediaControls;
-    private Button btn;
+    private ImageButton btn;
     private ProgressBar progressBar;
     private String url;
 
@@ -37,7 +38,7 @@ public class VideoPlayActivity extends Activity {
         }
         myWebView = (WebView) findViewById(R.id.web_view);
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
-        btn = (Button) findViewById(R.id.btn_cancel);
+        btn = (ImageButton) findViewById(R.id.btn_cancel);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +50,15 @@ public class VideoPlayActivity extends Activity {
 
             }
         });
-        myWebView.setWebViewClient(new WebViewClient());
+        myWebView.setWebViewClient(new WebViewClient()
+        {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                progressBar.setVisibility(View.GONE);
+            }
+        });
+
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAppCacheEnabled(true);
         myWebView.getSettings().setDomStorageEnabled(true);
@@ -59,13 +68,11 @@ public class VideoPlayActivity extends Activity {
         myWebView.setWebChromeClient(new WebChromeClient());
 
         progressBar.setVisibility(View.VISIBLE);
-
         Intent i = getIntent();
         if (i != null) {
             url = i.getStringExtra("videoUrl");
         }
         myWebView.loadUrl(url);
-        progressBar.setVisibility(View.GONE);
 //      myWebView.loadUrl("https://www.youtube.com/embed/0fAD-4K87dY?rel=0&amp;controls=0&amp;showinfo=0");
 //      myWebView.loadUrl("https://player.vimeo.com/video/200325511?color=82c99a");
 

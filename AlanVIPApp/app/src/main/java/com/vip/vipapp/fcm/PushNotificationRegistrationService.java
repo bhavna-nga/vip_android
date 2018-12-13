@@ -44,7 +44,7 @@ public class PushNotificationRegistrationService extends FirebaseInstanceIdServi
     private static void sendRegistrationToServer(String token) {
         // TODO: Send token to server.
         GlobalArrayList.regId = token;
-        Log.v("SEND", "**************** token "+token +" \n client ID "+GlobalArrayList.CLIENT_ID);
+//        Log.v("SEND", "**************** token "+token +" \n client ID "+GlobalArrayList.CLIENT_ID);
         new SendIntialInfo(token, GlobalArrayList.CLIENT_ID);
     }
 

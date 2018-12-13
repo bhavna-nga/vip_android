@@ -26,7 +26,7 @@ public class PushNotificationService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        Log.v("MSG", "REC ********************** "+ remoteMessage.getData().get("type"));
+//        Log.v("MSG", "REC ********************** "+ remoteMessage.getData().get("type"));
 
 //        if(remoteMessage.getData().get("type").equalsIgnoreCase("chat")) {
 //            MainActivity mainActivity = new MainActivity();

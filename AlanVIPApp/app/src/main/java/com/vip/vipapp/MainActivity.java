@@ -609,7 +609,7 @@ public class MainActivity extends YouTubeBaseActivity implements
                 new FetchData().execute();
                 if ((relChatLayout.getVisibility() == View.INVISIBLE || relChatLayout
                         .getVisibility() == View.GONE) && pushMessage == 1) {
-                    Log.v("INSIDE ", "**************** ");
+//                    Log.v("INSIDE ", "**************** ");
                     imgChat.setImageResource(R.drawable.chat_new_message);
                     getNewMessage = 1;
 //                    NotificationManager mNotificationManager = (NotificationManager) getApplicationContext()
@@ -701,8 +701,8 @@ public class MainActivity extends YouTubeBaseActivity implements
                     getNewMessage = 0;
                     imgChat.setImageResource(R.drawable.chat_icon_selected);
                     // ACTION = "chat";
-                    Log.v("GlobalArrayList.userId", "****************** "+GlobalArrayList.userId + "SP "+CommanStoredPreferences
-                            .getSentenceIntPref(getApplicationContext(), "userid"));
+//                    Log.v("GlobalArrayList.userId", "****************** "+GlobalArrayList.userId + "SP "+CommanStoredPreferences
+//                            .getSentenceIntPref(getApplicationContext(), "userid"));
                     if (GlobalArrayList.userId == 0) {
                         signin.setVisibility(View.VISIBLE);
                         sc4.setVisibility(View.VISIBLE);
@@ -1854,7 +1854,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 
                 web_view.setWebChromeClient(new WebChromeClient());
 
-                Log.v("MESSAGE ", "embed YES"); //allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
+//                Log.v("MESSAGE ", "embed YES"); //allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
                 String html = "<iframe height='100%' width='100%' src='" + full_list.get(index) + "' frameborder='0' allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>";
                 web_view.setVisibility(View.VISIBLE);
 
@@ -1884,7 +1884,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 //                        "UTF-8");
 
 //                if(!full_list.get(index).contains("/embed/") && !full_list.get(index).contains(".vimeo.")) {
-                Log.v("MESSAGE ", "embed NO");
+//                Log.v("MESSAGE ", "embed NO");
                 u = "<b>" + text_list.get(index) + "</b><br>"
                         + vid_list.get(index) + "<br><a href='"
                         + full_list.get(index) + "'></a>";
@@ -2856,7 +2856,7 @@ public class MainActivity extends YouTubeBaseActivity implements
                         .getSentenceIntPref(getApplicationContext(), "userid");
 
 
-                Log.v("NEW INTENT ","****************** executeSignIn "+ GlobalArrayList.userId);
+//                Log.v("NEW INTENT ","****************** executeSignIn "+ GlobalArrayList.userId);
                 if (eMail != null) {
                     GlobalArrayList.isShowChat = false;
                     String[] signinData = new String[2];
@@ -2888,7 +2888,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 
     public void reloadChatMessages()
     {
-        Log.v("NEW INTENT ","****************** FetchData ");
+//        Log.v("NEW INTENT ","****************** FetchData ");
         reloadChatMessages = true;
         new FetchData().execute();
     }
@@ -2959,8 +2959,8 @@ public class MainActivity extends YouTubeBaseActivity implements
         super.onResume();
 
 
-        Log.v("NEW INTENT ","****************** resume isChat "+ isChat +" userId "+ GlobalArrayList.userId +" SP "+CommanStoredPreferences
-                .getSentenceIntPref(getApplicationContext(), "userid"));
+//        Log.v("NEW INTENT ","****************** resume isChat "+ isChat +" userId "+ GlobalArrayList.userId +" SP "+CommanStoredPreferences
+//                .getSentenceIntPref(getApplicationContext(), "userid"));
         if (isChat) {
             if (GlobalArrayList.userId != 0) {
                 scheduleReloadChatMsgs();
