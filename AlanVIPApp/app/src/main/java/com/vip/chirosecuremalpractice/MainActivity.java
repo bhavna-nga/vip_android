@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.chirosecuremalpractice;
 
 import android.Manifest;
 import android.annotation.SuppressLint;

@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.chirosecuremalpractice;
 
 import java.io.BufferedReader;
 import java.io.IOException;

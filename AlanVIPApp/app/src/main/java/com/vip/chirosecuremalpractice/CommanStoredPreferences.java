@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.chirosecuremalpractice;
 
 import android.content.Context;
 import android.content.SharedPreferences;

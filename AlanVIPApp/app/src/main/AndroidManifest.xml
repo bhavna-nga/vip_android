@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vip.chirosecuremalpractice"
-    android:versionCode="12"
-    android:versionName="2.0">
+    android:versionCode="4"
+    android:versionName="4.0">
 
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="25" />
+    <!--<uses-sdk-->
+        <!--android:minSdkVersion="15"-->
+        <!--android:targetSdkVersion="26" />-->
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -17,10 +17,10 @@
 
     <!-- Removed as specified for GCM to FCM migration-->
     <!--<permission-->
-        <!--android:name="com.vip.vipapp.permission.C2D_MESSAGE"-->
+        <!--android:name="com.vip.chirosecuremalpractice.permission.C2D_MESSAGE"-->
         <!--android:protectionLevel="signature" />-->
 
-    <!--<uses-permission android:name="com.vip.vipapp.permission.C2D_MESSAGE" />-->
+    <!--<uses-permission android:name="com.vip.chirosecuremalpractice.permission.C2D_MESSAGE" />-->
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -35,7 +35,7 @@
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/icon72"
+        android:icon="@drawable/chiro_secure_icon"
         android:label="@string/app_label"
         android:theme="@style/AppTheme">
         <meta-data
@@ -44,7 +44,7 @@
 
         <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProviderfacebook_app_id"
+            android:authorities="com.facebook.app.FacebookContentProvider_facebook_app_id"
             android:exported="true" />
 
         <meta-data
@@ -96,7 +96,7 @@
             See README(https://goo.gl/l4GJaQ) for more. -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/vip_push" />
+            android:resource="@drawable/chiro_secure_notification" />
         <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
              notification message. See README(https://goo.gl/6BKBk7) for more. -->
         <meta-data
@@ -110,7 +110,7 @@
             <!--<intent-filter>-->
                 <!--<action android:name="com.google.android.c2dm.intent.RECEIVE" />-->
 
-                <!--<category android:name="com.vip.vipapp" />-->
+                <!--<category android:name="com.vip.chirosecuremalpractice" />-->
             <!--</intent-filter>-->
         <!--</receiver>-->
 

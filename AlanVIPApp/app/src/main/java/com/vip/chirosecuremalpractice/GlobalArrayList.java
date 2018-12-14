@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.chirosecuremalpractice;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
@@ -23,11 +23,11 @@ public class GlobalArrayList {
 //	static String BASE_URL = "http://192.168.1.31/";//"http://192.168.1.18:80/"; //http://planning.2ndcousinmedia.com:8000
 	public static String CLIENT_ID;
 
-	static String MSG_TYPE_BLOG = "3",
-			MSG_TYPE_VIDEO = "4",
-			MSG_TYPE_AUDIO = "5",
-			MSG_TYPE_SPECIAL = "6",
-			MSG_TYPE_TEXT = "7",
+	static String MSG_TYPE_BLOG = "96",
+			MSG_TYPE_VIDEO = "99",
+			MSG_TYPE_AUDIO = "95",
+			MSG_TYPE_SPECIAL = "97",
+			MSG_TYPE_TEXT = "98",
 			VIDEO_TYPE_GENERAL = "1",
 			VIDEO_TYPE_VIMEO = "2",
 			VIDEO_TYPE_YOUTUBE = "3",

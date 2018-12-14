@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "810527830065",
-    "firebase_url": "https://chiro-b6416.firebaseio.com",
-    "project_id": "chiro-b6416",
-    "storage_bucket": "chiro-b6416.appspot.com"
+    "project_number": "376280478123",
+    "firebase_url": "https://chiro-android.firebaseio.com",
+    "project_id": "chirosecure-android",
+    "storage_bucket": "chirosecure-android.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:810527830065:android:7bebf8774e470a99",
+        "mobilesdk_app_id": "1:376280478123:android:6bb289a715e804d2",
         "android_client_info": {
-          "package_name": "com.vip.vipapp"
+          "package_name": "com.vip.chirosecuremalpractice"
         }
       },
       "oauth_client": [
         {
-          "client_id": "810527830065-5m7igd46llear6ecvreg8l4ukj96nmgj.apps.googleusercontent.com",
+          "client_id": "376280478123-q13edqireq6uc167k3u79ct6a4gshn9o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC4Ji158EGR5rCEFgc2hL15kTLcKoJ6cBU"
+          "current_key": "AIzaSyBCfH-qhRdqMLTjplRuaZfmlYtIqUjEIzE"
         }
       ],
       "services": {
