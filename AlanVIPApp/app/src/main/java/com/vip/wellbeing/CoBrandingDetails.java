@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.wellbeing;
 
 import android.app.Activity;
 import android.os.AsyncTask;

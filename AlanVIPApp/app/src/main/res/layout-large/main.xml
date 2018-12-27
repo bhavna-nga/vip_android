@@ -509,7 +509,7 @@
                     android:visibility="visible">
 
 
-                    <com.vip.vipapp.TouchyWebView
+                    <com.vip.wellbeing.TouchyWebView
                         android:id="@+id/web_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />

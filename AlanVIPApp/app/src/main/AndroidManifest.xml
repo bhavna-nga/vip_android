@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vip.vipapp"
+    package="com.vip.wellbeing"
     android:versionCode="12"
     android:versionName="2.0">
 
@@ -17,10 +17,10 @@
 
     <!-- Removed as specified for GCM to FCM migration-->
     <!--<permission-->
-        <!--android:name="com.vip.vipapp.permission.C2D_MESSAGE"-->
+        <!--android:name="com.vip.wellbeing.permission.C2D_MESSAGE"-->
         <!--android:protectionLevel="signature" />-->
 
-    <!--<uses-permission android:name="com.vip.vipapp.permission.C2D_MESSAGE" />-->
+    <!--<uses-permission android:name="com.vip.wellbeing.permission.C2D_MESSAGE" />-->
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -44,7 +44,7 @@
 
         <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProviderfacebook_app_id"
+            android:authorities="com.facebook.app.FacebookContentProvider_wellbeing_facebook_app_id"
             android:exported="true" />
 
         <meta-data
@@ -110,7 +110,7 @@
             <!--<intent-filter>-->
                 <!--<action android:name="com.google.android.c2dm.intent.RECEIVE" />-->
 
-                <!--<category android:name="com.vip.vipapp" />-->
+                <!--<category android:name="com.vip.wellbeing" />-->
             <!--</intent-filter>-->
         <!--</receiver>-->
 

@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.wellbeing;
 
 public class EachMessage {
 	public String id;

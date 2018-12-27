@@ -1,11 +1,11 @@
-package com.vip.vipapp.fcm;
+package com.vip.wellbeing.fcm;
 
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.vip.vipapp.GlobalArrayList;
-import com.vip.vipapp.SendIntialInfo;
+import com.vip.wellbeing.GlobalArrayList;
+import com.vip.wellbeing.SendIntialInfo;
 
 /**
  * This class/service is used to handle the device token for send it to server.

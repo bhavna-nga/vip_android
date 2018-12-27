@@ -1,10 +1,10 @@
-package com.vip.vipapp.fcm;
+package com.vip.wellbeing.fcm;
 
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.vip.vipapp.MainActivity;
+import com.vip.wellbeing.MainActivity;
 
 /**
  * This class/service is used to handle the coming notification when app in foreground.

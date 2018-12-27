@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.vip.wellbeing;
 
 import java.io.BufferedReader;
 import java.io.IOException;
