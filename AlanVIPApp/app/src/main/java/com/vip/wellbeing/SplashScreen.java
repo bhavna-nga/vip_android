@@ -1,13 +1,10 @@
 package com.vip.wellbeing;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 /**
@@ -21,6 +18,7 @@ public class SplashScreen extends Activity {
 
         setContentView(R.layout.splash_screen);
 
+//        printHashKey();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -34,9 +32,9 @@ public class SplashScreen extends Activity {
 
                     Bundle notificationBundle = getIntent().getExtras();
 
-                    String messageContent = "", notificationType ="";
+                    String messageContent = "", notificationType = "";
 
-                    if(notificationBundle.getString("type") != null)
+                    if (notificationBundle.getString("type") != null)
                         notificationType = notificationBundle.getString("type");
 
                     if (notificationBundle.getString("new_message") != null && !notificationBundle.getString("new_message").trim().equals(""))
@@ -45,18 +43,16 @@ public class SplashScreen extends Activity {
                         messageContent = notificationBundle.getString("message");
 
                     handleNotificationClick(notificationType, messageContent);
-                }
-                else {
+                } else {
                     Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
             }
-        },5000);
+        }, 5000);
     }
 
-    private void handleNotificationClick(String notificationType, String messageContent)
-    {
+    private void handleNotificationClick(String notificationType, String messageContent) {
         Intent intent;
         if (notificationType != null && notificationType.equalsIgnoreCase("video")) {
 
@@ -83,8 +79,7 @@ public class SplashScreen extends Activity {
 //
 //            mBuilder.setContentIntent(contentIntent);
 //            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-        }
-        else if (notificationType != null && !notificationType.equalsIgnoreCase("chat")) {
+        } else if (notificationType != null && !notificationType.equalsIgnoreCase("chat")) {
 //            PendingIntent contentIntent = PendingIntent.getActivity(
 //                    this, 0, new Intent(this, MainActivity.class), 0);
 //
@@ -102,14 +97,13 @@ public class SplashScreen extends Activity {
 
             intent = new Intent(this, MainActivity.class);
 
-        }
-        else{
+        } else {
 //            if (GlobalArrayList
 //                    .isApplicationSentToBackground(getApplicationContext())) {
 
-                MainActivity.getNewMessage = 1;
-                intent = new Intent(this, MainActivity.class);
-                intent.putExtra("message", 1);
+            MainActivity.getNewMessage = 1;
+            intent = new Intent(this, MainActivity.class);
+            intent.putExtra("message", 1);
 
 //                PendingIntent contentIntent = PendingIntent.getActivity(
 //                        this.getApplicationContext(), 0, intentExtra, 0);
@@ -134,7 +128,7 @@ public class SplashScreen extends Activity {
 //                mBuilder.setContentIntent(contentIntent);
 //                mNotificationManager.notify(NOTIFICATION_ID,
 //                        mBuilder.build());
-                Log.d("", "Application is in background");
+            Log.d("", "Application is in background");
 //            }
         }
 
@@ -153,4 +147,18 @@ public class SplashScreen extends Activity {
         startActivity(intent);
         finish();
     }
+
+    /* public void printHashKey() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashKey = new String(Base64.encode(md.digest(), 0));
+                Log.i("HASH", "printHashKey() Hash Key: " + hashKey);
+            }
+        } catch (Exception e) {
+            Log.e("HASH", "printHashKey()", e);
+        }
+    }*/
 }

@@ -72,6 +72,7 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.vip.chirosecuremalpractice.R;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -1246,7 +1247,7 @@ public class MainActivity extends YouTubeBaseActivity implements
 
                 }
 
-                if (text.equals("Facebook")) {
+                if (text.equals("Facebook") && full_list.size() > 0) {
                     FacebookSdk.setApplicationId(getString(R.string.facebook_app_id));
                     FacebookSdk.sdkInitialize(getApplicationContext());
                     CallbackManager callbackManager = CallbackManager.Factory.create();

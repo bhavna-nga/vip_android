@@ -12,7 +12,10 @@
     <string name="app_label">WellBeingMD</string>
     <string name="share_app_link">https://play.google.com/store/apps/details?id=com.vip.wellbeing</string>
     <string name="facebook_app_id">471073763421693</string>
+    <string name="facebook_authority">com.facebook.app.FacebookContentProvider471073763421693</string>
     <string name="share_app_content">WellBeingMD VIP App</string>
+    <!--com.facebook.app.FacebookContentProvider471073763421693-->
+    <!--471073763421693-->
 
     <!-- ChiroSecure App -->
     <!--<string name="ques_link">http://www.chirosecure.com/chirosecure-app-support/</string>-->
