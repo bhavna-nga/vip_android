@@ -6,13 +6,13 @@
     <string name="hello_world">Hello world!</string>
 
     <!-- WellBeing MD App -->
-    <!--<string name="ques_link">http://www.chirosecure.com/chirosecure-app-support/</string>-->
-    <!--<string name="client_id">479</string>-->
-    <!--<string name="project_number">1002925824167</string>-->
-    <!--<string name="app_label">ChiroSecure</string>-->
-    <!--<string name="share_app_link">https://play.google.com/store/apps/details?id=com.vip.chirosecuremalpractice</string>-->
-    <!--<string name="facebook_app_id">1209229339174157</string>-->
-    <!--<string name="share_app_content">Dr. Alan Weinstein\'s VIP App</string>-->
+    <string name="ques_link">http://www.yourvipapp.info/vip-app-features/</string>
+    <string name="client_id">204</string>
+    <string name="project_number">1002925824167</string>
+    <string name="app_label">WellBeingMD</string>
+    <string name="share_app_link">https://play.google.com/store/apps/details?id=com.vip.wellbeing</string>
+    <string name="facebook_app_id">471073763421693</string>
+    <string name="share_app_content">WellBeingMD VIP App</string>
 
     <!-- ChiroSecure App -->
     <!--<string name="ques_link">http://www.chirosecure.com/chirosecure-app-support/</string>-->
@@ -22,13 +22,13 @@
     <!--<string name="share_app_link">https://play.google.com/store/apps/details?id=com.vip.chirosecuremalpractice</string>-->
 
     <!--Alan's VIP App -->
-    <string name="ques_link">http://www.yourvipapp.info/vip-app-features/</string>
-    <string name="client_id">39</string>
-    <string name="project_number">810527830065</string> <!-- testing -->
-    <string name="app_label">VIP</string>
-    <string name="share_app_link">https://play.google.com/store/apps/details?id=com.vip.vipapp</string>
-    <string name="facebook_app_id">1209229339174157</string>
-    <string name="share_app_content">Dr. Alan Weinstein\'s VIP App</string>
+    <!--<string name="ques_link">http://www.yourvipapp.info/vip-app-features/</string>-->
+    <!--<string name="client_id">39</string>-->
+    <!--<string name="project_number">810527830065</string> &lt;!&ndash; testing &ndash;&gt;-->
+    <!--<string name="app_label">VIP</string>-->
+    <!--<string name="share_app_link">https://play.google.com/store/apps/details?id=com.vip.vipapp</string>-->
+    <!--<string name="facebook_app_id">1209229339174157</string>-->
+    <!--<string name="share_app_content">Dr. Alan Weinstein\'s VIP App</string>-->
 
     <!-- Mosaic LifeCARE -->
     <!--<string name="ques_link">http://www.chirosecure.com/chirosecure-app-support/</string>

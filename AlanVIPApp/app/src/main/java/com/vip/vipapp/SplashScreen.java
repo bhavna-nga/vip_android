@@ -52,7 +52,7 @@ public class SplashScreen extends Activity {
                     finish();
                 }
             }
-        },10000);
+        },5000);
     }
 
     private void handleNotificationClick(String notificationType, String messageContent)
