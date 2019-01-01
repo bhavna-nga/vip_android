@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.vip.wellbeing"
         minSdkVersion 15
-        targetSdkVersion  25
+        targetSdkVersion  26
         multiDexEnabled true
     }
 
@@ -28,10 +28,10 @@ dependencies {
 //    compile 'com.google.android.gms:play-services:+'
 //    compile 'com.google.android.gms:play-services-gcm:16.0.0'
 
-    compile 'com.google.firebase:firebase-messaging:17.3.4'
-    compile files('libs/YouTubeAndroidPlayerApi.jar')
-    compile files('libs/android-query-full.0.26.7.jar')
-    compile 'com.android.support:multidex:1.0.3'
-    compile 'com.facebook.android:facebook-android-sdk:4.28.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation files('libs/android-query-full.0.26.7.jar')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.facebook.android:facebook-android-sdk:4.39.0'
 }
 apply plugin: 'com.google.gms.google-services'
