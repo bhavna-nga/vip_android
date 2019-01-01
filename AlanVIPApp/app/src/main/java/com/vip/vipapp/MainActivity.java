@@ -652,18 +652,18 @@ public class MainActivity extends YouTubeBaseActivity implements
 
         switch (v.getId()) {
             case R.id.ques:
-//              mP.setVisibility(View.GONE);
-//                destroyPlayer();
-//                forSpecialMessage.setVisibility(View.GONE);
-//                ACTION = "question";
-//                setInvisibleView();
-//                isChat = false;
-//                ques.setImageResource(R.drawable.questionfoccussedcopy_selected);
-//                question.setVisibility(View.VISIBLE);
-//                sc1.setVisibility(View.VISIBLE);
+              mP.setVisibility(View.GONE);
+                destroyPlayer();
+                forSpecialMessage.setVisibility(View.GONE);
+                ACTION = "question";
+                setInvisibleView();
+                isChat = false;
+                ques.setImageResource(R.drawable.questionfoccussedcopy_selected);
+                question.setVisibility(View.VISIBLE);
+                sc1.setVisibility(View.VISIBLE);
 
-                Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ques_link)));
-                startActivity(intent1);
+//                Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ques_link)));
+//                startActivity(intent1);
                 break;
 
             case R.id.img_msgg:
