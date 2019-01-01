@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "810527830065",
-    "firebase_url": "https://chiro-b6416.firebaseio.com",
-    "project_id": "chiro-b6416",
-    "storage_bucket": "chiro-b6416.appspot.com"
+    "project_number": "719407178987",
+    "firebase_url": "https://wellbeingmd-vip-app-2179a.firebaseio.com",
+    "project_id": "wellbeingmd-vip-app-2179a",
+    "storage_bucket": "wellbeingmd-vip-app-2179a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:810527830065:android:7bebf8774e470a99",
+        "mobilesdk_app_id": "1:719407178987:android:0281cb529237bb2f",
         "android_client_info": {
           "package_name": "com.vip.wellbeing"
         }
       },
       "oauth_client": [
         {
-          "client_id": "810527830065-5m7igd46llear6ecvreg8l4ukj96nmgj.apps.googleusercontent.com",
+          "client_id": "719407178987-t566e18j40q9h5a0mc7kgu747376dlca.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC4Ji158EGR5rCEFgc2hL15kTLcKoJ6cBU"
+          "current_key": "AIzaSyA3g06HGSeTuV1EVD9ksU3dLbLNRb_5Bmk"
         }
       ],
       "services": {

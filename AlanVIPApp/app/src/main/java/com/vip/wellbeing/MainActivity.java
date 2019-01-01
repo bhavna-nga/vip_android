@@ -72,7 +72,7 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.vip.chirosecuremalpractice.R;
+import com.vip.wellbeing.R;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
