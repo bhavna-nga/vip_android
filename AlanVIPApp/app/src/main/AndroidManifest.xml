@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vip.vipapp"
+    package="com.zorad.vip"
     android:versionCode="6"
     android:versionName="1.5">
 
@@ -17,10 +17,10 @@
 
     <!-- Removed as specified for GCM to FCM migration-->
     <!--<permission-->
-        <!--android:name="com.vip.vipapp.permission.C2D_MESSAGE"-->
+        <!--android:name="com.zorad.vip.permission.C2D_MESSAGE"-->
         <!--android:protectionLevel="signature" />-->
 
-    <!--<uses-permission android:name="com.vip.vipapp.permission.C2D_MESSAGE" />-->
+    <!--<uses-permission android:name="com.zorad.vip.permission.C2D_MESSAGE" />-->
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -109,7 +109,7 @@
             <!--<intent-filter>-->
                 <!--<action android:name="com.google.android.c2dm.intent.RECEIVE" />-->
 
-                <!--<category android:name="com.vip.vipapp" />-->
+                <!--<category android:name="com.zorad.vip" />-->
             <!--</intent-filter>-->
         <!--</receiver>-->
 

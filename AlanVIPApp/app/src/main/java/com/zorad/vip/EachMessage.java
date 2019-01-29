@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.zorad.vip;
 
 public class EachMessage {
 	public String id;

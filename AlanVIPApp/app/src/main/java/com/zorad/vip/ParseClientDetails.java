@@ -1,4 +1,4 @@
-package com.vip.vipapp;
+package com.zorad.vip;
 
 import android.app.Activity;
 import android.os.AsyncTask;
