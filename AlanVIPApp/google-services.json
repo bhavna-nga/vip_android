@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "810527830065",
-    "firebase_url": "https://chiro-b6416.firebaseio.com",
-    "project_id": "chiro-b6416",
-    "storage_bucket": "chiro-b6416.appspot.com"
+    "project_number": "338224903570",
+    "firebase_url": "https://zorad-chiropractic-vip-app.firebaseio.com",
+    "project_id": "zorad-chiropractic-vip-app",
+    "storage_bucket": "zorad-chiropractic-vip-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:810527830065:android:7bebf8774e470a99",
+        "mobilesdk_app_id": "1:338224903570:android:b3a6e224363fd1cb",
         "android_client_info": {
-          "package_name": "com.vip.vipapp"
+          "package_name": "com.zorad.vip"
         }
       },
       "oauth_client": [
         {
-          "client_id": "810527830065-5m7igd46llear6ecvreg8l4ukj96nmgj.apps.googleusercontent.com",
+          "client_id": "338224903570-ioequpp1vofq3me2t07p03njr657785o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC4Ji158EGR5rCEFgc2hL15kTLcKoJ6cBU"
+          "current_key": "AIzaSyBH_1v3MGDcS1iIb18S7d0i_VhT_ugaUyc"
         }
       ],
       "services": {
