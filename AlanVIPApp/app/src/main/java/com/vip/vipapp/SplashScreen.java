@@ -28,10 +28,6 @@ public class SplashScreen extends Activity {
 
                 if (getIntent().getAction() == "FCM_NOTIFICATION") {
 
-//                    Log.v("FCM_NOTIFICATION", "*************** "
-//                            +"\n -- "+getIntent().getExtras().get("type")+"\n new msg "+ getIntent().getExtras().getString("new_message")
-//                            +"\n msg "+getIntent().getExtras().getString("message"));
-
                     Bundle notificationBundle = getIntent().getExtras();
 
                     String messageContent = "", notificationType ="";
@@ -137,8 +133,6 @@ public class SplashScreen extends Activity {
                 Log.d("", "Application is in background");
 //            }
         }
-
-//        Log.v("HANDLER", "***************** "+GlobalArrayList.mHandler);
 
         if (GlobalArrayList.mHandler != null) {
 
